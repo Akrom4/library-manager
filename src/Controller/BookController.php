@@ -22,7 +22,7 @@ class BookController extends AbstractController
     }
     #[Route('/{id}/edit', name: 'app_book_edit', methods: ['GET', 'POST'])]
     #[Route('/new', name: 'app_book_new', methods: ['GET', 'POST'])]
-    public function new (Request $request, Book $book = null, BookRepository $bookRepository, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, Book $book = null, BookRepository $bookRepository, EntityManagerInterface $entityManager): Response
     {
         if (!$book) {
             $book = new Book();
@@ -31,7 +31,7 @@ class BookController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+
             $entityManager->persist($book);
             $entityManager->flush();
 

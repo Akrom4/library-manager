@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\BookRepository;
+use Assert\NotBlank;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\BookRepository;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 class Book
@@ -14,6 +15,7 @@ class Book
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[NotBlank]
     private ?string $title = null;
 
     #[ORM\Column(length: 255, nullable: true)]

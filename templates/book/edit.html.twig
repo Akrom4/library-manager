@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Books{% endblock %}
+{% block title %}Edit Books
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Books</h1>
+	<h1>Edit Books</h1>
 
 	{{ include('book/_form.html.twig') }}
-    
-    {{ include('book/_delete_form.html.twig') }}
-	
+
+	{{ include('book/_delete_form.html.twig') }}
+
 	<a href="{{ path('app_book_index') }}">back to list</a>
 
 {% endblock %}

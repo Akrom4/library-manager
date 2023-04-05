@@ -3,10 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Book;
+use Assert\NotBlank;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Assert\Length;
 
 
 class BookType extends AbstractType
@@ -18,29 +20,29 @@ class BookType extends AbstractType
                 'label' => 'Title',
                 'required' => true,
             ])
-            ->add('author',TextType::class, [
+            ->add('author', TextType::class, [
                 'label' => 'Author',
                 'required' => false,
             ])
-            ->add('isbn',TextType::class, [
+            ->add('isbn', TextType::class, [
                 'label' => 'ISBN',
                 'required' => false,
             ])
-            ->add('year',TextType::class, [
+            ->add('year', TextType::class, [
                 'label' => 'Year',
                 'required' => false,
             ])
-            ->add('publisher',TextType::class, [
+            ->add('publisher', TextType::class, [
                 'label' => 'Publisher',
                 'required' => false,
             ])
-            ->add('description',TextType::class, [
+            ->add('description', TextType::class, [
                 'label' => 'Description',
                 'required' => false,
             ]);
     }
 
-        public function configureOptions(OptionsResolver $resolver): void
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Book::class,
