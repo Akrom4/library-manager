@@ -3,6 +3,37 @@
 {% block title %}New Book{% endblock %}
 
 {% block body %}
-	{{ include('book/_form.html.twig') }}
-    <a href="{{ path('app_book_index') }}">back to list</a>
+	<div class="container mt-4">
+		<h1 class="mb-4">New Book</h1>
+
+		{{ form_start(form) }}
+		    <div class="form-group">
+		        {{ form_label(form.title, 'Title') }}
+		        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+		    </div>
+		    <div class="form-group">
+		        {{ form_label(form.author, 'Author') }}
+		        {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+		    </div>
+		    <div class="form-group">
+		        {{ form_label(form.isbn, 'ISBN') }}
+		        {{ form_widget(form.isbn, {'attr': {'class': 'form-control'}}) }}
+		    </div>
+		    <div class="form-group">
+		        {{ form_label(form.year, 'Year') }}
+		        {{ form_widget(form.year, {'attr': {'class': 'form-control'}}) }}
+		    </div>
+		    <div class="form-group">
+		        {{ form_label(form.publisher, 'Publisher') }}
+		        {{ form_widget(form.publisher, {'attr': {'class': 'form-control'}}) }}
+		    </div>
+		    <div class="form-group">
+		        {{ form_label(form.description, 'Description') }}
+		        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+		    </div>
+		    <button type="submit" class="btn btn-primary mt-2">{{ button_label|default('Save') }}</button>
+		{{ form_end(form) }}
+
+	    <a href="{{ path('app_book_index') }}" class="btn btn-secondary mt-4">back to list</a>
+	</div>
 {% endblock %}
