@@ -1,4 +1,24 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'base.html.twig' %}
+
+{% block title %}New Book{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">New Book</h1>
+
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_start(form) }}
+                {{ form_row(form.title, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.author, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.isbn, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.year, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.publisher, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
+
+                <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Form\BookType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BookController extends AbstractController
 {
-    #[Route('/book/listing', name: 'app_book')]
+    #[Route('/book/listing', name: 'app_book_index')]
     public function index(BookRepository $bookRepository): Response
     {
         return $this->render('book/index.html.twig', [
@@ -31,8 +32,6 @@ class BookController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-
-
             $entityManager->persist($book);
             $entityManager->flush();
 
